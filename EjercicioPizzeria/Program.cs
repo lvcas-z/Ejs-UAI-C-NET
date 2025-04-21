@@ -28,9 +28,32 @@ namespace EjercicioPizzeria
 
         }
 
-        int precioPedido(int pizzasPedidas, int precioPizza)
+        int obtenerPrecioPedido(int cantidades, int pizzaSeleccionada, int[]pizzas)
+        {
+            int precioPizza;
+            precioPizza = buscarPrecioPizza(pizzaSeleccionada, pizzas);
+            int precioTotal = precioPizza * cantidades;
+
+            return precioTotal;
+        }
+
+        int buscarMoto(int motoBuscada, string[] motos)
         {
 
+            string pizzaPrecio;
+
+
+            if (pizzaSeleccionada >= 0 && pizzaSeleccionada < pizzas.Length)
+            {
+                pizzaPrecio = pizzas[pizzaSeleccionada];
+                return pizzaPrecio;
+            }
+            else
+            {
+                Console.WriteLine("La pizza seleccionada no existe");
+            }
+
+            return -1;
 
         }
 
@@ -38,15 +61,18 @@ namespace EjercicioPizzeria
         static void Main(string[] args)
         {
             int[] preciosPizzas = { 12, 15, 20, 25, 32 };
+
             string[] motos = { "Fran Zanella", "Axel Gilera", "Luciano Harley", "Lucas Bmw", "Liu Suzuki" };
+
+            int[] kilometros = new int[motos.Length];
+
             List<int> pedidos;
 
-            int iniciarSistema,codPizza, cantidad, nroMoto, monto, montoTotal, distancia,nroPedido;
+            int iniciarSistema,codPizza, cantidad, nroMoto, monto, distancia,nroPedido;
             codPizza = 0;
             cantidad = 0;
             nroMoto = 0;
             monto = 0;
-            montoTotal = 0;
 
 
             
